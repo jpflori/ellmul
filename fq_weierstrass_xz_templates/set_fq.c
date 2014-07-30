@@ -28,12 +28,12 @@
 #include "templates.h"
 
 void
-TEMPLATE(T, weierstrass_xz_set_ui)(TEMPLATE(T, weierstrass_xz_t) E,
-                                   ulong a, ulong b,
+TEMPLATE3(T, weierstrass_xz_set, T)(TEMPLATE(T, weierstrass_xz_t) E,
+                                   const TEMPLATE(T, t) a, const TEMPLATE(T, t) b,
                                    const TEMPLATE(T, ctx_t) K)
 {
-    TEMPLATE(T, set_ui)(E->a, a, K);
-    TEMPLATE(T, set_ui)(E->b, b, K);
+    TEMPLATE(T, set)(E->a, a, K);
+    TEMPLATE(T, set)(E->b, b, K);
     TEMPLATE(T, mul_ui)(E->b2, E->b, 2, K);
     TEMPLATE(T, mul_ui)(E->b4, E->b, 4, K);
 }

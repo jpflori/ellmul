@@ -23,19 +23,12 @@
 
 ******************************************************************************/
 
+#include "fq_montgomery_xz.h"
+
 #ifdef T
-
-#include "templates.h"
-
-void
-TEMPLATE(T, weierstrass_xz_set_ui)(TEMPLATE(T, weierstrass_xz_t) E,
-                                   ulong a, ulong b,
-                                   const TEMPLATE(T, ctx_t) K)
-{
-    TEMPLATE(T, set_ui)(E->a, a, K);
-    TEMPLATE(T, set_ui)(E->b, b, K);
-    TEMPLATE(T, mul_ui)(E->b2, E->b, 2, K);
-    TEMPLATE(T, mul_ui)(E->b4, E->b, 4, K);
-}
-
+#undef T
 #endif
+
+#define T fq
+#include "fq_montgomery_xz_templates/set_fq.c"
+#undef T

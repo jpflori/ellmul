@@ -38,35 +38,14 @@ typedef struct {
 typedef TEMPLATE(T, weierstrass_xz_struct) TEMPLATE(T, weierstrass_xz_t)[1];
 
 void
-TEMPLATE(T, weierstrass_xz_init)(TEMPLATE(T, weierstrass_xz_t) E, TEMPLATE(T, ctx_t) K);
+TEMPLATE(T, weierstrass_xz_set_ui)(TEMPLATE(T, weierstrass_xz_t) E,
+                                   ulong a, ulong b,
+                                   const TEMPLATE(T, ctx_t) K);
 
 void
-TEMPLATE(T, weierstrass_xz_clear)(TEMPLATE(T, weierstrass_xz_t) E, TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, weierstrass_xz_set_ui)(TEMPLATE(T, weierstrass_xz_t) E, ulong a, ulong b, TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, weierstrass_xz_dbl)(TEMPLATE(T, t) x3, TEMPLATE(T, t) z3,
-                                const TEMPLATE(T, t) x1, const TEMPLATE(T, t) z1,
-                                const TEMPLATE(T, weierstrass_xz_t) E,
-                                const TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, weierstrass_xz_dadd)(TEMPLATE(T, t) x5, TEMPLATE(T, t) z5,
-                                 const TEMPLATE(T, t) x3, const TEMPLATE(T, t) z3,
-                                 const TEMPLATE(T, t) x2, const TEMPLATE(T, t) z2,
-                                 const TEMPLATE(T, t) x1, const TEMPLATE(T, t) z1,
-                                 const TEMPLATE(T, weierstrass_xz_t) E,
-                                 const TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, weierstrass_xz_ladd)(TEMPLATE(T, t) x5, TEMPLATE(T, t) z5, TEMPLATE(T, t) x4, TEMPLATE(T, t) z4,
-                                 const TEMPLATE(T, t) x3, const TEMPLATE(T, t) z3,
-                                 const TEMPLATE(T, t) x2, const TEMPLATE(T, t) z2,
-                                 const TEMPLATE(T, t) x1, const TEMPLATE(T, t) z1,
-                                 const TEMPLATE(T, weierstrass_xz_t) E,
-                                 const TEMPLATE(T, ctx_t) K);
+TEMPLATE3(T, weierstrass_xz_set, T)(TEMPLATE(T, weierstrass_xz_t) E,
+                                    const TEMPLATE(T, t) a, const TEMPLATE(T, t) b,
+                                    const TEMPLATE(T, ctx_t) K);
 
 #ifdef EC
 #undef EC

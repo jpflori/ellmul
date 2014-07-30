@@ -37,42 +37,16 @@ typedef struct {
 typedef TEMPLATE(T, montgomery_xz_struct) TEMPLATE(T, montgomery_xz_t)[1];
 
 void
-TEMPLATE(T, montgomery_xz_init)(TEMPLATE(T, montgomery_xz_t) E, TEMPLATE(T, ctx_t) K);
+TEMPLATE(T, montgomery_xz_set_ui)(TEMPLATE(T, montgomery_xz_t) E,
+                                  ulong a, ulong b,
+                                  const TEMPLATE(T, t) inv4,
+                                  const TEMPLATE(T, ctx_t) K);
 
 void
-TEMPLATE(T, montgomery_xz_clear)(TEMPLATE(T, montgomery_xz_t) E, TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, montgomery_xz_set_ui)(TEMPLATE(T, montgomery_xz_t) E, ulong a, ulong b, TEMPLATE(T, ctx_t) K, TEMPLATE(T, t) inv4);
-
-void
-TEMPLATE(T, montgomery_xz_dbl)(TEMPLATE(T, t) x3, TEMPLATE(T, t) z3,
-                                   const TEMPLATE(T, t) x1, const TEMPLATE(T, t) z1,
-                                   const TEMPLATE(T, montgomery_xz_t) E,
+TEMPLATE3(T, montgomery_xz_set, T)(TEMPLATE(T, montgomery_xz_t) E,
+                                   const TEMPLATE(T, t) a, const TEMPLATE(T, t) b,
+                                   const TEMPLATE(T, t) inv4,
                                    const TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, montgomery_xz_dadd)(TEMPLATE(T, t) x5, TEMPLATE(T, t) z5,
-                                    const TEMPLATE(T, t) x3, const TEMPLATE(T, t) z3,
-                                    const TEMPLATE(T, t) x2, const TEMPLATE(T, t) z2,
-                                    const TEMPLATE(T, t) x1, const TEMPLATE(T, t) z1,
-                                    const TEMPLATE(T, montgomery_xz_t) E,
-                                    const TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, montgomery_xz_ladd)(TEMPLATE(T, t) x5, TEMPLATE(T, t) z5, TEMPLATE(T, t) x4, TEMPLATE(T, t) z4,
-                                    const TEMPLATE(T, t) x3, const TEMPLATE(T, t) z3,
-                                    const TEMPLATE(T, t) x2, const TEMPLATE(T, t) z2,
-                                    const TEMPLATE(T, t) x1, const TEMPLATE(T, t) z1,
-                                    const TEMPLATE(T, montgomery_xz_t) E,
-                                    const TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE(T, montgomery_xz_mul_ltr)(TEMPLATE(T, t) x, TEMPLATE(T, t) z,
-                                       const TEMPLATE(T, t) x1, const TEMPLATE(T, t) z1,
-                                       const fmpz_t m,
-                                       const TEMPLATE(T, montgomery_xz_t) E,
-                                       const TEMPLATE(T, ctx_t) K);
 
 #ifdef EC
 #undef EC

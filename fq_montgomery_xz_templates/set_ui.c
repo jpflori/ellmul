@@ -29,7 +29,10 @@
 
 /* requires the inverse of 4 in K */
 void
-TEMPLATE(T, montgomery_xz_set_ui)(TEMPLATE(T, montgomery_xz_t) E, ulong a, ulong b, TEMPLATE(T, ctx_t) K, TEMPLATE(T, t) inv4)
+TEMPLATE(T, montgomery_xz_set_ui)(TEMPLATE(T, montgomery_xz_t) E,
+                                  ulong a, ulong b,
+                                  const TEMPLATE(T, t) inv4,
+                                  const TEMPLATE(T, ctx_t) K)
 {
     TEMPLATE(T, set_ui)(E->a, a, K);
     TEMPLATE(T, set_ui)(E->a24, 2, K);

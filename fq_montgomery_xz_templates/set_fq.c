@@ -27,15 +27,18 @@
 
 #include "templates.h"
 
+/* requires the inverse of 4 in K */
 void
-TEMPLATE(T, weierstrass_xz_set_ui)(TEMPLATE(T, weierstrass_xz_t) E,
-                                   ulong a, ulong b,
+TEMPLATE3(T, montgomery_xz_set, T)(TEMPLATE(T, montgomery_xz_t) E,
+                                   const TEMPLATE(T, t) a, const TEMPLATE(T, t) b,
+                                   const TEMPLATE(T, t) inv4,
                                    const TEMPLATE(T, ctx_t) K)
 {
-    TEMPLATE(T, set_ui)(E->a, a, K);
-    TEMPLATE(T, set_ui)(E->b, b, K);
-    TEMPLATE(T, mul_ui)(E->b2, E->b, 2, K);
-    TEMPLATE(T, mul_ui)(E->b4, E->b, 4, K);
+    TEMPLATE(T, set)(E->a, a, K);
+    TEMPLATE(T, set_ui)(E->a24, 2, K);
+    TEMPLATE(T, add)(E->a24, E->a, E->a24, K);
+    TEMPLATE(T, mul)(E->a24, E->a24, inv4, K);
+    TEMPLATE(T, set)(E->b, b, K);
 }
 
 #endif
