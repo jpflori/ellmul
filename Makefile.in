@@ -150,14 +150,14 @@ endif
 
 install: library
 	mkdir -p $(DESTDIR)$(PREFIX)/lib
-	mkdir -p $(DESTDIR)$(PREFIX)/include
+	mkdir -p $(DESTDIR)$(PREFIX)/include/ellmul
 	$(AT)if [ "$(ELLMUL_SHARED)" -eq "1" ]; then \
 		cp $(ELLMUL_LIB) $(DESTDIR)$(PREFIX)/lib; \
 	fi
 	$(AT)if [ "$(ELLMUL_STATIC)" -eq "1" ]; then \
 		cp libellmul.a $(DESTDIR)$(PREFIX)/lib; \
 	fi
-	cp $(HEADERS) $(DESTDIR)$(PREFIX)/include
+	cp $(HEADERS) $(DESTDIR)$(PREFIX)/include/ellmul
 	$(AT)if [ ! -z $(EXT_HEADERS) ]; then \
 		cp $(EXT_HEADERS) $(DESTDIR)$(PREFIX)/include; \
 	fi
