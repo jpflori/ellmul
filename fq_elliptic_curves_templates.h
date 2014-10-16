@@ -26,8 +26,6 @@
 #ifdef T
 #ifdef EC
 
-#include "templates.h"
-
 void
 TEMPLATE3(T, EC, init)(TEMPLATE3(T, EC, t) E, TEMPLATE(T, ctx_t) K);
 

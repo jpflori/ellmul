@@ -25,8 +25,6 @@
 
 #ifdef T
 
-#include "templates.h"
-
 /*
   Weierstrass XZ type
 */
