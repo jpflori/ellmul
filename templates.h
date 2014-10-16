@@ -4,7 +4,7 @@
 
     FLINT is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 3 of the License, or
+    the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
 
     FLINT is distributed in the hope that it will be useful,
@@ -19,42 +19,29 @@
 =============================================================================*/
 /******************************************************************************
 
-    Copyright (C) 2014 Jean-Pierre Flori
-
+    Copyright (C) 2013 Mike Hansen
+ 
 ******************************************************************************/
 
-#ifdef T
+#ifndef TEMPLATES_H_
+#define TEMPLATES_H_
 
-#include "templates.h"
+#define CAT(X,Y) X##_##Y
+#define CAT3(X,Y,Z) X##_##Y##_##Z
+#define _CAT(X,Y) _##X##_##Y
+#define _CAT3(X,Y,Z) _##X##_##Y##_##Z
+#define __CAT(X,Y) __##X##_##Y
+#define __CAT3(X,Y,Z) __##X##_##Y##_##Z
 
-/*
-  Weierstrass XZ type
-*/
-typedef struct {
-    TEMPLATE(T, t) a;
-    TEMPLATE(T, t) b;
-    TEMPLATE(T, t) b2;
-    TEMPLATE(T, t) b4;
-} TEMPLATE(T, weierstrass_xz_struct);
+#define TEMPLATE(X,Y) CAT(X,Y)
+#define TEMPLATE3(X,Y,Z) CAT3(X,Y,Z)
+#define _TEMPLATE(X,Y) _CAT(X,Y)
+#define _TEMPLATE3(X,Y,Z) _CAT3(X,Y,Z)
+#define __TEMPLATE(X,Y) __CAT(X,Y)
+#define __TEMPLATE3(X,Y,Z) __CAT3(X,Y,Z)
 
-typedef TEMPLATE(T, weierstrass_xz_struct) TEMPLATE(T, weierstrass_xz_t)[1];
-
-void
-TEMPLATE(T, weierstrass_xz_set_ui)(TEMPLATE(T, weierstrass_xz_t) E,
-                                   ulong a, ulong b,
-                                   const TEMPLATE(T, ctx_t) K);
-
-void
-TEMPLATE3(T, weierstrass_xz_set, T)(TEMPLATE(T, weierstrass_xz_t) E,
-                                    const TEMPLATE(T, t) a, const TEMPLATE(T, t) b,
-                                    const TEMPLATE(T, ctx_t) K);
-
-#ifdef EC
-#undef EC
-#endif
-
-#define EC weierstrass_xz
-#include "fq_elliptic_curves_templates.h"
-#undef EC
+#define TEMPLATE_STR(x)   #x
+#define TEMPLATE_PRINT(x) flint_printf("%s", TEMPLATE_STR(x));
+#define TEMPLATE_PRINTF(s, x) flint_printf(s, TEMPLATE_STR(x));
 
 #endif
