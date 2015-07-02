@@ -25,6 +25,8 @@
 
 #ifdef T
 
+#include "templates.h"
+
 /*
   Montgomery XZ type
 */
