@@ -1,0 +1,7 @@
+Makefile
+build/
+config.h
+*.a
+*.so
+*.o
+*~
