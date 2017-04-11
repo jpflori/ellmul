@@ -53,7 +53,8 @@ TEMPLATE(T, weierstrass_xz_dbl)(TEMPLATE(T, t) x3, TEMPLATE(T, t) z3,
     TEMPLATE(T, sqr)(a, azz, K);
     TEMPLATE(T, sub)(a, a, xx, K);
     TEMPLATE(T, sub)(a, a, zz, K);
-    TEMPLATE(T, mul_ui)(a, a, 2, K);
+    /* TEMPLATE(T, mul_ui)(a, a, 2, K); */
+    TEMPLATE(T, add)(a, a, a, K);
     /* aZZ = a*ZZ */
     TEMPLATE(T, mul)(azz, E->a, zz, K);
     /* X3 = (XX-aZZ)²-b2*A*ZZ */

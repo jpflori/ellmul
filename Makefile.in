@@ -11,6 +11,7 @@ QUIET_AR  = @echo '   ' AR  ' ' $@;
 AT=@
 
 BUILD_DIRS = fq_montgomery_xz fq_nmod_montgomery_xz fq_nmod_weierstrass_xz fq_weierstrass_xz \
+   fp fp_montgomery_xz fp_weierstrass_xz \
    $(EXTRA_BUILD_DIRS)
 
 TEMPLATE_DIRS = fq_elliptic_curves_templates fq_weierstrass_xz_templates fq_montgomery_xz_templates
