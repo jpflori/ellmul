@@ -33,7 +33,7 @@
 #endif
 
 #define T fp
-#if 0
+#if 1
 #define USE_REDC
 #endif
 #include "fq_montgomery_xz_templates.h"

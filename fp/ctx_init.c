@@ -14,7 +14,8 @@ void fp_ctx_init(fp_ctx_t ctx, const fmpz_t p)
 
     fmpz_preinvn_init(ctx->pinv, p);
 
-    ctx->b_exp = fmpz_bits(p);
+    /* ctx->b_exp = fmpz_bits(p); */
+    ctx->b_exp = COEFF_TO_PTR(*p)->_mp_size * GMP_LIMB_BITS;
 
     fmpz_init(ctx->b_square);
     fmpz_one(ctx->b_square);

@@ -31,8 +31,8 @@
 
 #define T fp
 #ifdef USE_REDC
-#define mul mul_redc
-#define sqr sqr_redc
+#define mul mul_redc_mpir
+#define sqr sqr_redc_mpir
 #endif
 #include "fq_montgomery_xz_templates/dadd.c"
 #ifdef USE_REDC

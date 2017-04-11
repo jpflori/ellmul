@@ -31,7 +31,7 @@
 
 #define T fp
 #ifdef USE_REDC
-#define mul mul_redc
+#define mul mul_redc_mpir
 #define sqr sqr_redc
 #endif
 #include "fq_weierstrass_xz_templates/dbl.c"
