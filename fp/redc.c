@@ -59,7 +59,7 @@ void fp_mul_redc_mpir(fp_t rop, const fp_t op1, const fp_t op2, const fp_ctx_t c
             zop2 = COEFF_TO_PTR(*op2);
             b = zop2->_mp_d;
             len_b = zop2->_mp_size;
-            mpn_mul_1(prod, b, len_b, *op1);
+            prod[len_b] = mpn_mul_1(prod, b, len_b, *op1);
         }
     } else {
         if (!COEFF_IS_MPZ(*op2))
@@ -68,7 +68,7 @@ void fp_mul_redc_mpir(fp_t rop, const fp_t op1, const fp_t op2, const fp_ctx_t c
             a = zop1->_mp_d;
             len_a = zop1->_mp_size;
             len_b = 1;
-            mpn_mul_1(prod, a, len_a, *op2);
+            prod[len_a] = mpn_mul_1(prod, a, len_a, *op2);
         } else {
             zop1 = COEFF_TO_PTR(*op1);
             a = zop1->_mp_d;
@@ -98,6 +98,8 @@ void fp_mul_redc_mpir(fp_t rop, const fp_t op1, const fp_t op2, const fp_ctx_t c
     while(!out[--len_out])
         ;
     zrop->_mp_size = ++len_out;
+    if (len_out <= 1)
+        _fmpz_demote_val(rop);
 
     flint_free(prod);
 }
