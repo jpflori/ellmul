@@ -33,8 +33,10 @@
 #endif
 
 #define T fp
-#if 1
-#define USE_REDC
+#if 0
+#define CONCAT(A, B) CONCAT0(A,B)
+#define CONCAT0(A, B) A##B
+#define USE_REDC _cios
 #endif
 #include "fq_weierstrass_xz_templates.h"
 #undef T

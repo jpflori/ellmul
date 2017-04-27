@@ -136,16 +136,23 @@ void fp_sqr(fp_t rop, const fp_t op, const fp_ctx_t ctx)
 
 void fp_redc(fp_t rop, const fp_t op, const fp_ctx_t ctx);
 void fp_mul_redc(fp_t rop, const fp_t op1, const fp_t op2, const fp_ctx_t ctx);
-void fp_mul_redc_mpir(fp_t rop, const fp_t op1, const fp_t op2, const fp_ctx_t ctx);
-void fp_redcify(fp_t rop, const fp_t op, const fp_ctx_t ctx);
-void fp_unredcify(fp_t rop, const fp_t op, const fp_ctx_t ctx);
-
 static __inline__
 void fp_sqr_redc(fp_t rop, const fp_t op, const fp_ctx_t ctx)
 {
     fp_mul_redc(rop, op, op, ctx);
 }
+void fp_redcify(fp_t rop, const fp_t op, const fp_ctx_t ctx);
+void fp_unredcify(fp_t rop, const fp_t op, const fp_ctx_t ctx);
+
+void fp_mul_redc_mpir(fp_t rop, const fp_t op1, const fp_t op2, const fp_ctx_t ctx);
 void fp_sqr_redc_mpir(fp_t rop, const fp_t op, const fp_ctx_t ctx);
+
+void fp_mul_redc_cios(fp_t rop, const fp_t op1, const fp_t op2, const fp_ctx_t ctx);
+static __inline__
+void fp_sqr_redc_cios(fp_t rop, const fp_t op, const fp_ctx_t ctx)
+{
+    fp_mul_redc_cios(rop, op, op, ctx);
+}
 
 static __inline__
 void fp_inv(fp_t rop, const fp_t op, const fp_ctx_t ctx)

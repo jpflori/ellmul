@@ -2,7 +2,7 @@
 #include <time.h>
 #include "fp_weierstrass_xz.h"
 
-#define ITER 10
+#define ITER 1000
 
 int main(void)
 {
